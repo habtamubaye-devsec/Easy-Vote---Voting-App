@@ -1,70 +1,87 @@
-## Ranker Course
+# 🗳️ EasyVote
 
-This repo holds the project code for my [Ranker Youtube tutorial](https://youtube.com/playlist?list=PLnrGn4P6C4P5J2rSSyiAyxZegws4SS8ey) on building a real-time, websocket-based (add another hyphenated-term as you please) ranked-choice voting app! 
+**EasyVote** is a premium, real-time voting application designed to make group decisions fast, fair, and visually engaging. Whether you're deciding on a team lunch, a movie night, or a project name, EasyVote provides a seamless experience for creators and participants alike.
 
-I hope it helps you and your friends to choose a movie to see, a vacation destination, or to find a place to eat without wasting so much time deliberating that your enthusiasm for going out utterly vanishes!
+---
 
-Check out the [Application Overview](./tutorials/01-application-overview.md) to determine if you're interested!
+## ✨ Key Features
 
-## Getting Started
+- **Real-Time Interaction**: Built with Socket.io for instantaneous updates across all devices.
+- **Integrated Waiting Room**: Add and manage choices directly on the main page—no clunky modals.
+- **Ranked-Choice Voting**: Users can rank their top choices, ensuring the final result reflects the group's true preference.
+- **Beautiful Visualizations**: Results are displayed using a custom-built, interactive SVG Donut Chart with vibrant color palettes.
+- **Mobile-First Design**: A responsive, premium UI that looks great on any screen.
+- **One-Click Sharing**: Quickly share your 6-character Poll ID with a dedicated copy button and instant visual feedback.
+- **Admin Controls**: Creators have full control to start the vote, close the poll, or reset for a new session.
 
-This project contains a `starter` branch which you can use to follow along from the beginning of the tutorial. You can either clone the starter branch or use a tool like [degit](https://github.com/Rich-Harris/degit) to get a copy of the repository without any history. 
+---
 
-```sh
-npx degit https://github.com/JacobSNGoodwin/ranker-course.git#starter
-```
+## 🛠️ Tech Stack
 
-This repository will also include a branch for each tutorial. So if you'd like to join along at some later point in the course, you can clone that branch, or use `degit` as above, but replacing starter with the branch name as follows:
+- **Frontend**: React, TypeScript, TailwindCSS, Valtio (State Management).
+- **Backend**: NestJS, TypeScript, Socket.io.
+- **Database/Cache**: Redis (via ioredis).
+- **Infrastructure**: Docker Compose (for easy local setup).
 
-```sh
-npx degit https://github.com/JacobSNGoodwin/ranker-course.git#{branch}
-```
+---
 
-## Running the application
+## 🚀 Getting Started
 
-In order to run the application, you will need to have some prerequisite tools installed. 
+### Prerequisites
+- Node.js (v16+)
+- Docker (for Redis)
 
-First, you'll need to be able to run `docker-compose` command. If you are able to install Docker with Docker Desktop, that is probably the easiest solution.
+### Installation
 
-Second, you'll need NodeJS for both the client and server applications. I recommend you use [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows) and make sure to use the same version of node found in the [.nvmrc](/.nvmrc) file at the root of the project. You can run `nvm use` from the root of the project to make sure you're using the same version of node as me. 
+1.  **Clone the repository**:
+    ```bash
+    git clone [repository-url]
+    cd EasyVote
+    ```
 
-With the everything installed and with Docker running on your machine, you can launch a docker container running `redis-json`, the backend Nest JS application, and the front-end react application by running the following from the root of the project.
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    # This will install dependencies for both client and server
+    ```
 
-```sh
-npm run start
-```
+3.  **Start Redis**:
+    ```bash
+    docker-compose up -d
+    ```
 
-The project root's `package.json` file and its npm scripts are basically just for convenience of running all applications and a database at once.
+4.  **Start the application**:
+    - **Server**: 
+      ```bash
+      cd server
+      npm start
+      ```
+    - **Client**: 
+      ```bash
+      cd client
+      npm run dev
+      ```
 
-You can also run these applications separately by running the appropriate npm scripts inside of each project's `package.json` file. 
+---
 
-## Tutorials Folder
+## 📖 How to Use
 
-This repo contains a [tutorials](tutorials) folder holding a document for each of the video lessons. These are not intended to be well-written, thorough documents. However these will hold the scripts, or notes, that I use to create the videos with code snippets and images. Therefore, you may find these documents useful for copying and pasting some code, or to review content from the videos in a more efficient manner. 
+1.  **Start a Poll**: Click "Start a New Poll", enter your topic (e.g., "Team Lunch"), and set the number of votes allowed per person.
+2.  **Add Choices**: In the Waiting Room, type your options and press Enter.
+3.  **Invite Friends**: Share the **Poll ID** displayed in the header.
+4.  **Vote**: Participants rank their top choices.
+5.  **View Results**: The Admin closes the poll to reveal the **Donut Chart** with percentage breakdowns!
 
-Or, heck, skip the videos all together. It's not like I'm in this for the money (though feel free to send me vast sums of money or offer lucrative jobs). Making niche, long video tutorials will never garner much viewership. I'd be making general info videos or crash-courses if that's what I wanted. 
+---
 
-## Links to Tools and Frameworks
+## 🎨 UI Aesthetics
+EasyVote uses a modern **Emerald & Pearl** design system, featuring:
+- Soft shadows and glassmorphism effects.
+- Smooth transitions and micro-animations.
+- High-contrast typography (Inter/Outfit style).
+- Conversational labels that make the app feel alive.
 
-### General
-* [Typescript](https://www.typescriptlang.org/)
-* [Docker](https://www.docker.com/products/docker-desktop)
-* [Prettier](https://prettier.io/)
-* [ESLint](https://eslint.org/docs/user-guide/getting-started)
+---
 
-### Frontend Application
-* [Vite](https://vitejs.dev/)
-* [React](https://reactjs.org/)
-* [Valtio](https://github.com/pmndrs/valtio)
-* [Wouter](https://github.com/molefrog/wouter)
-* [Storybook](https://storybook.js.org/)
-* [Socket.io Client](https://socket.io/docs/v4/client-api/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [react-use](https://github.com/streamich/react-use)
-
-### Backend Application
-* [NestJS](https://nestjs.com/)
-* [Socket.io Server](https://socket.io/docs/v4/server-api/)
-* [Redis-JSON](https://oss.redis.com/redisjson/)
-* [Redis-JSON Docker Image](https://hub.docker.com/r/redislabs/rejson/)
-* [JSON Web Token](https://jwt.io/)
+## 🛡️ License
+This project is licensed under the MIT License.

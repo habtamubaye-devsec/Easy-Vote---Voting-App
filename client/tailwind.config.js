@@ -9,6 +9,9 @@ module.exports = {
         orange: colors.orange,
         purple: colors.violet,
       },
+      fontFamily: {
+        sans: ['Outfit', 'sans-serif'],
+      },
     },
   },
   plugins: [],

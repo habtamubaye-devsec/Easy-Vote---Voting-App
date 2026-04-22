@@ -1,14 +1,38 @@
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
 @tailwind base;
 
 @layer base {
   h1 {
-    @apply text-2xl font-medium;
+    @apply text-3xl font-bold tracking-tight text-green-900 mb-4;
   }
   h2 {
-    @apply text-xl;
+    @apply text-2xl font-bold tracking-tight text-gray-800 mb-3;
   }
   h3 {
-    @apply text-lg;
+    @apply text-lg font-semibold text-gray-700 mb-2;
   }
 }
 
@@ -16,67 +40,67 @@
 @tailwind utilities;
 
 body {
-  @apply text-gray-700 text-opacity-90 overflow-y-hidden;
+  @apply bg-green-50 text-gray-800 min-h-screen overflow-y-hidden antialiased;
 }
 
 .box {
-  @apply rounded-md border-2 border-gray-500 py-2 px-4 font-semibold text-gray-700 transition duration-300 ease-in-out hover:border-opacity-50 hover:shadow-lg;
+  @apply bg-white rounded-3xl border border-gray-100 py-4 px-6 font-semibold text-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 ease-in-out hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)];
 }
 
 .boxless {
-  @apply py-2 px-4 font-semibold text-gray-700 my-2 transition duration-300 ease-in-out hover:shadow-lg;
+  @apply py-3 px-5 font-semibold text-gray-600 my-2 transition-all duration-300 ease-out hover:text-green-800 hover:bg-green-100 rounded-lg;
 }
 
 .box:disabled {
-  @apply text-opacity-50 opacity-50 cursor-not-allowed;
+  @apply opacity-50 cursor-not-allowed bg-gray-50 border-gray-200 text-gray-400 hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)];
 }
 
 .btn-blue {
-  @apply border-blue-700 text-blue-800;
+  @apply bg-green-700 text-white border-transparent hover:-translate-y-0.5 hover:bg-green-800 shadow-md;
 }
 
 .info {
-  @apply focus:ring-0 focus:outline-none;
+  @apply bg-gray-100 border-b-2 border-green-700 border-opacity-20 border-t-0 border-l-0 border-r-0 text-gray-800 placeholder-gray-400 focus:ring-0 focus:border-green-800 focus:bg-white rounded-t-lg rounded-b-none transition-all outline-none;
 }
 
 .bg-blue {
-  @apply bg-blue-700;
+  @apply bg-green-700;
 }
 
 .btn-purple {
-  @apply border-indigo-600 text-indigo-800;
+  @apply bg-gray-200 text-gray-800 border-transparent hover:-translate-y-0.5 hover:bg-gray-300 shadow-sm;
 }
 
 .info-purple {
-  @apply border-indigo-600;
+  @apply border-gray-300 focus:border-gray-500;
 }
 
 .bg-purple {
-  @apply bg-indigo-600;
+  @apply bg-gray-200;
 }
 
 .btn-orange {
-  @apply border-orange-600 text-orange-700;
+  @apply bg-green-800 text-white border-transparent hover:-translate-y-0.5 hover:bg-green-900 shadow-md;
 }
 
 .info-orange {
-  @apply border-orange-600;
+  @apply border-green-800 focus:border-green-900;
 }
 
 .bg-orange {
-  @apply bg-orange-600;
+  @apply bg-green-800;
 }
 
 .btn-round {
-  @apply h-12 w-12 rounded-full shadow-md text-white font-extrabold text-2xl hover:shadow-2xl;
+  @apply h-14 w-14 rounded-full shadow-md text-green-900 bg-green-100 border-2 border-green-200 font-extrabold text-2xl flex items-center justify-center transition-all duration-200 hover:scale-105 hover:bg-green-200;
 }
 
 .btn-round-orange {
-  @apply bg-orange-600  hover:bg-orange-700;
+  @apply bg-green-800 text-white border-green-900 hover:bg-green-900;
 }
 
 .btn-round:disabled {
-  @apply bg-gray-500 bg-opacity-25 cursor-not-allowed;
+  @apply bg-gray-200 border-gray-300 text-gray-400 cursor-not-allowed hover:scale-100 opacity-60 hover:bg-gray-200;
 }
 
 .mobile-height {
@@ -97,7 +121,7 @@ body {
 .page-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .page-exit {
@@ -107,31 +131,10 @@ body {
 
 .page-exit-active {
   opacity: 0;
-  transform: translateY(-100%);
-  transition: opacity 300ms, transform 300ms;
+  transform: translateY(-50%);
+  transition: opacity 250ms cubic-bezier(0.16, 1, 0.3, 1), transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pulsate {
-  animation-name: pulsate;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-  animation-iteration-count: 5;
-  animation-direction: alternate;
-}
-
-@keyframes pulsate {
-  0% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-
-  50% {
-    opacity: 0.9;
-    transform: scale(1.03, 1.03);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(0.97, 0.97);
-  }
+  /* Removed pulse animation for cleaner corporate static look */
 }
