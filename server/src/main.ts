@@ -12,10 +12,13 @@ async function bootstrap() {
   const port = parseInt(configService.get('PORT'));
   const clientPort = parseInt(configService.get('CLIENT_PORT'));
 
+  const clientUrl = configService.get('CLIENT_URL');
+
   app.enableCors({
     origin: [
       `http://localhost:${clientPort}`,
       new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
+      ...(clientUrl ? [clientUrl] : []),
     ],
   });
   app.useWebSocketAdapter(new SocketIOAdapter(app, configService));

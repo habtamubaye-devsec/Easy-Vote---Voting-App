@@ -14,5 +14,6 @@
     "paths": {
       "@nestjs/common": ["@nestjs/common/"]
     },
+    "skipLibCheck": true
   }
 }

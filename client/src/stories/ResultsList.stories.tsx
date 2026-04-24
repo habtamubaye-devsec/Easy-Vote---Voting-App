@@ -15,67 +15,58 @@ const Template: ComponentStory<typeof ResultsList> = (args) => (
   </div>
 );
 
-const results: Results = [
-  {
-    votes: [
-      {
-        nominationID: '1',
-        count: 3,
-        text: 'Taco Bell',
-      },
-      {
-        nominationID: '2',
-        count: 2,
-        text: 'Del Taco',
-      },
-      {
-        nominationID: '3',
-        count: 1,
-        text: "Papa's Tacos",
-      },
-      {
-        nominationID: '4',
-        count: 1,
-        text: 'Los Taqueros Locos con Nomre Largo',
-      },
-    ],
-    totalVotes: 7,
-  },
-  {
-    votes: [
-      {
-        nominationID: '1',
-        count: 3,
-        text: 'Taco Bell',
-      },
-      {
-        nominationID: '2',
-        count: 2,
-        text: 'Del Taco',
-      },
-      {
-        nominationID: '4',
-        count: 2,
-        text: "Papa's Tacos",
-      },
-    ],
-    totalVotes: 7,
-  },
-  {
-    votes: [
-      {
-        nominationID: '4',
-        count: 4,
-        text: "Papa's Tacos",
-      },
-      {
-        nominationID: '1',
-        count: 3,
-        text: 'Taco Bell',
-      },
-    ],
-    totalVotes: 7,
-  },
+const results: Results[] = [
+  [
+    {
+      nominationID: '1',
+      nominationText: 'Taco Bell',
+      score: 3,
+    },
+    {
+      nominationID: '2',
+      nominationText: 'Del Taco',
+      score: 2,
+    },
+    {
+      nominationID: '3',
+      nominationText: "Papa's Tacos",
+      score: 1,
+    },
+    {
+      nominationID: '4',
+      nominationText: 'Los Taqueros Locos con Nomre Largo',
+      score: 1,
+    },
+  ],
+  [
+    {
+      nominationID: '1',
+      nominationText: 'Taco Bell',
+      score: 3,
+    },
+    {
+      nominationID: '2',
+      nominationText: 'Del Taco',
+      score: 2,
+    },
+    {
+      nominationID: '4',
+      nominationText: "Papa's Tacos",
+      score: 2,
+    },
+  ],
+  [
+    {
+      nominationID: '4',
+      nominationText: "Papa's Tacos",
+      score: 4,
+    },
+    {
+      nominationID: '1',
+      nominationText: 'Taco Bell',
+      score: 3,
+    },
+  ],
 ];
 
 export const ResultsBasic = Template.bind({});
@@ -83,102 +74,96 @@ ResultsBasic.args = {
   results: results,
 };
 
-const resultsLong: Results = [
-  {
-    votes: [
-      {
-        nominationID: '1',
-        count: 10,
-        text: 'Taco Bell',
-      },
-      {
-        nominationID: '2',
-        count: 8,
-        text: 'Del Taco',
-      },
-      {
-        nominationID: '3',
-        count: 5,
-        text: "Papa's Tacos",
-      },
-      {
-        nominationID: '4',
-        count: 4,
-        text: 'Los Taqueros Locos con Nomre Largo',
-      },
-      {
-        nominationID: '5',
-        count: 4,
-        text: 'Chicky-Chicken-Filet',
-      },
-      {
-        nominationID: '6',
-        count: 3,
-        text: 'Mad Clown Burger',
-      },
-      {
-        nominationID: '7',
-        count: 3,
-        text: 'Thai Basil #0005',
-      },
-      {
-        nominationID: '8',
-        count: 2,
-        text: 'Sichuan Spice',
-      },
-      {
-        nominationID: '9',
-        count: 0,
-        text: 'Not Good Curry',
-      },
-      {
-        nominationID: '10',
-        count: 0,
-        text: 'Not Good Soul Food',
-      },
-      {
-        nominationID: '11',
-        count: 0,
-        text: 'Not Good Sushi',
-      },
-      {
-        nominationID: '12',
-        count: 0,
-        text: 'Not Good Falafel',
-      },
-      {
-        nominationID: '13',
-        count: 0,
-        text: 'Not Good Steakhouse',
-      },
-      {
-        nominationID: '14',
-        count: 0,
-        text: 'Not Good Burgers',
-      },
-    ],
-    totalVotes: 39,
-  },
-  {
-    votes: [
-      {
-        nominationID: '1',
-        count: 3,
-        text: 'Taco Bell',
-      },
-      {
-        nominationID: '2',
-        count: 2,
-        text: 'Del Taco',
-      },
-      {
-        nominationID: '4',
-        count: 2,
-        text: "Papa's Tacos",
-      },
-    ],
-    totalVotes: 7,
-  },
+const resultsLong: Results[] = [
+  [
+    {
+      nominationID: '1',
+      nominationText: 'Taco Bell',
+      score: 10,
+    },
+    {
+      nominationID: '2',
+      nominationText: 'Del Taco',
+      score: 8,
+    },
+    {
+      nominationID: '3',
+      nominationText: "Papa's Tacos",
+      score: 5,
+    },
+    {
+      nominationID: '4',
+      nominationText: 'Los Taqueros Locos con Nomre Largo',
+      score: 4,
+    },
+    {
+      nominationID: '5',
+      nominationText: 'Chicky-Chicken-Filet',
+      score: 4,
+    },
+    {
+      nominationID: '6',
+      nominationText: 'Mad Clown Burger',
+      score: 3,
+    },
+    {
+      nominationID: '7',
+      nominationText: 'Thai Basil #0005',
+      score: 3,
+    },
+    {
+      nominationID: '8',
+      nominationText: 'Sichuan Spice',
+      score: 2,
+    },
+    {
+      nominationID: '9',
+      nominationText: 'Not Good Curry',
+      score: 0,
+    },
+    {
+      nominationID: '10',
+      nominationText: 'Not Good Soul Food',
+      score: 0,
+    },
+    {
+      nominationID: '11',
+      nominationText: 'Not Good Sushi',
+      score: 0,
+    },
+    {
+      nominationID: '12',
+      nominationText: 'Not Good Falafel',
+      score: 0,
+    },
+    {
+      nominationID: '13',
+      nominationText: 'Not Good Steakhouse',
+      score: 0,
+    },
+    {
+      nominationID: '14',
+      nominationText: 'Not Good Burgers',
+      score: 0,
+    },
+  ],
+  [
+    {
+      nominationID: '1',
+      nominationText: 'Taco Bell',
+      score: 3,
+    },
+    {
+      nominationID: '2',
+      nominationText: 'Del Taco',
+      score: 2,
+    },
+    {
+      nominationID: '4',
+      nominationText: "Papa's Tacos",
+      score: 2,
+    },
+  ],
 ];
 
 export const ResultsLong = Template.bind({});
